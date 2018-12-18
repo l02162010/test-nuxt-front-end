@@ -3,10 +3,10 @@
     <div>
       <logo/>
       <h1 class="title">
-        8825-front
+        front
       </h1>
       <h2 class="subtitle">
-        8825 front side
+        front side
       </h2>
       <div class="links">
         <a
@@ -28,6 +28,9 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  mounted () {
+    this.$router.push('/login')
   }
 }
 </script>
