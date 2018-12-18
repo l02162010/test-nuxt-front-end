@@ -79,7 +79,7 @@
         let data = {
           email: this.form.email,
           password: this.form.pwd,
-          // confirmPwd: this.form.confirmPwd,
+          // confirmPwd: this.form.confirmPwd, // open it
           gender: this.form.gender
         }
         let res = await this.$axios.$post(this.url+'/api/users', data)
