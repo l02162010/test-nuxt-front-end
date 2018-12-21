@@ -69,10 +69,27 @@
         ]
       }
     },
+    mounted () {
+      this.getUsers()
+    },
     methods: {
+      async getUsers () {
+        let res = await this.$axios.$get(this.url+'/api/users')
+        console.log(res)
+      },
       async onLogin (evt) {
         evt.preventDefault()
-        alert(JSON.stringify(this.form))
+        let data = {
+          email: this.form.email,
+          password: this.form.pwd
+        }
+        let res = await this.$axios.$post(this.url+'/api/login', data)
+        console.log(res)
+        if(res.success){
+          alert('登入成功')
+          localStorage.setItem('token',res.token)
+        }
+        // alert(JSON.stringify(this.form))
       },
       async onRegister (evt) {
         evt.preventDefault();
